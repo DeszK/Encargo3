@@ -6,6 +6,6 @@ def index(request):
     context={}
     return render(request, 'cesar/index.html', context)
 
-def contacto(request):
+def registro(request):
     context={}
-    return render(request, 'cesar/contacto.html', context)
+    return render(request, 'cesar/registro.html', context)
