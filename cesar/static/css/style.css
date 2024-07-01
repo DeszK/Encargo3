@@ -1,0 +1,128 @@
+
+.navbar-custom .btn{
+    background-color: rgb(255, 115, 0); /* Cambia el color del fondo del botón a naranja */
+    color: white; /* cambia el color del texto del botón a blanco */
+}
+
+.navbar-custom .btn:hover{
+    background-color: darkorange; /* Cambia el color del fondo del botón a naranja oscuro cuando se pasa el mouse por encima */
+    color: white; /* Esto mantiene el color del texto del botón en blanco al pasar el mouse por encima */
+}
+
+.navbar-custom .navbar-brand-text{
+    color: white; /* Cambia el color del "título" del NavBar a blanco */
+}
+
+.navbar-toggler-icon{
+    background-color: white; /* Cambia el color de las 3 rayitas a blanco (se ve como un bloque blanco)*/
+}
+
+.error-input{
+    border: 1px solid red; /* Cambia el color de las casillas donde se ingresan los datos cuando estos no cumplen la validación */
+}
+
+.card-img-top{
+    max-height: 200px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+}
+
+.card{
+    margin: 40px;
+}
+.map-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+.map-wrapper {
+    flex: 1 1 calc(50% - 16px);
+    min-width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.map-wrapper iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+.navbar-custom{
+    background-color: rgb(255, 115, 0); /* Cambia el color de fondo del NavBar */
+}
+
+#carouselExampleIndicators {
+    border-radius: 15px; /* Establece bordes redondeados */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga de los bordes redondeados */
+    border: 3px solid rgb(255, 115, 0); /* Establece el color del borde como naranja */
+    margin: 20px;
+}
+
+.map-title{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.map-address{
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+.fuente {
+    font-family: 'Abril Fatface', cursive;
+}
+
+body{
+    background-color: #FFFCF6;
+}
+
+.navbar-brand img {
+    max-width: 30px; /* Pone un ancho máximo para la imagen */
+  }
+
+.image-container {
+    display: flex; /* Sirve para organizar las imagenes */
+    align-items: center; /* Alinea verticalmente las imágenes */
+}
+  /* Estilos para cada imagen */
+.image-container img {
+    margin: 20px;
+    margin-right: 250px; /* Añade un margen a la derecha para separar las imágenes */
+}
+.image-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container img {
+    width: 30%; /* Establece el ancho de las imágenes */
+    height: auto; /* Hace que la altura sea proporcional al ancho */
+}
+
+.second-image {
+    width: 50%; /* Establece el ancho de la segunda imagen */
+    height: auto; /* Hace que la altura sea proporcional al ancho */
+}
+
+/* Estilos para el formulario(página registrarse.html) */
+.container-centered {
+    display: flex; /* Sirve para alinear y distribuir los elementos aumáticamente */
+    text-align: center; /* Centra el texto dentro del contenedor y cualquier otro elemento */
+
+}
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Sirve para cambiar el tipo de letra al título del formulario */
+    text-decoration: underline; /* Sirve para subrayar el título del formulario */
+}
+.container {
+    border: 5px solid rgb(255, 115, 0); /* Coloca un borde alrededor de color naranja */
+    border-radius: 10px; /* Sirve para hacer las esquinas redondeadas */
+    padding: 20px; /* Crea un espacio de relleno alrededor del contenido */ 
+    width: 100%; /* Establece el ancho del elemento */
+}
