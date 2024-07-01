@@ -9,3 +9,7 @@ def index(request):
 def formulario(request):
     context={}
     return render(request, 'cesar/formulario.html', context)
+
+def contacto(request):
+    context={}
+    return render(request, 'cesar/contacto.html', context)
