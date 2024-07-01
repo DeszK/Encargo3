@@ -5,3 +5,7 @@ from django.shortcuts import render
 def index(request):
     context={}
     return render(request, 'cesar/index.html', context)
+
+def formulario(request):
+    context={}
+    return render(request, 'cesar/formulario.html', context)
