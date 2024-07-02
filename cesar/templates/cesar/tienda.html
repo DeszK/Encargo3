@@ -15,6 +15,69 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>hola mundo</h1>
+
+<div class="container">
+    <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-custom fuente">
+    <a class="navbar-brand">
+      <img src={% static "/img/cesar.jpg"%}  class="img-fluid" alt="">
+      <span class="navbar-brand-text">Pequeño Cesar Pizza</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="btn">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="registro.html">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="nuestros_productos.html">Nuestros Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="contactanos.html">Contáctanos</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="mapa.html">¡Encuentranos!</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="row" style="padding: 10px 0;">
+                <div class="col-12">
+                    <div class="row">
+                        {% for producto in productos %}
+                        <div class="col-6">
+                            <div class="card" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{producto.nombre}}</h5>
+                                    <p class="card-text">{{producto.categoria}}</p>
+                                    <p class="card-text">{{producto.precio}}</p>
+                                    <a href="#" class="btn btn.primary">Agregar al Carrito</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            carrito
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
