@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 
@@ -9,3 +9,7 @@ def index(request):
 def registro(request):
     context={}
     return render(request, 'cesar/registro.html', context)
+
+def tienda(request):
+    context={}
+    return render(request, "cesar/tienda.html", context)
