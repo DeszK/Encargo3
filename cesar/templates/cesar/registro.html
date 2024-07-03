@@ -14,32 +14,11 @@
           <div id="mensaje1"></div> <!-- Dentro de este div va el mensaje de error que está en JS-->
     
     
-          <label>Apellido:</label>
+          <label>Contraseña:</label>
           <div class="col-sm-20">
-            <input type="text" id="itApellido" class="campo" placeholder="Robles" /> <br />
+            <input type="text" id="itContrasena" class="campo" placeholder="" /> <br />
           </div>
           <div id="mensaje2"></div>
-    
-    
-          <label>Celular:</label>
-          <div class="col-sm-20">
-            <input type="text" id="itCelular" class="campo" placeholder="+569..." /> <br />
-          </div>
-          <div id="mensaje3"></div>
-    
-    
-          <label>Correo Electrónico:</label>
-          <div class="col-sm-20">
-            <input type="text" id="itEmail" class="campo" placeholder="diegorobles@gmail.com" /> <br />
-          </div>
-          <div id="mensaje4"></div>
-    
-    
-          <label>Direccion:</label>
-          <div class="col-sm-20">
-            <input type="text" id="itDireccion" class="campo" placeholder="Froilán Roa 7107, La Florida" /> <br />
-          </div>
-          <div id="mensaje5"></div>
     
           <br>
     
@@ -53,5 +32,7 @@
 
 
   <!-- Scripts -->
-  <script src="assets/js/validaciones.js"></script> <!--Link hacia validaciones.js-->
-{%endblock%}
+  {%load static%}
+  <script src={%static 'js/validaciones.js' %}></script> <!--Link hacia validaciones.js-->
+  
+{% endblock %}
