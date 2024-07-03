@@ -1,38 +1,32 @@
-{%extends "cesar/index.html"%}
-
-{%block content%}
-    <div class="container-centered fuente"> <!-- Container para centrar el contenido -->
-      <div class="container" style="margin-top: 70px;">
-        <!--Formulario-->
-        <h1>Registro De Usuario</h1><br />
-        <form id="formulario">
-    
-          <label>Nombre:</label>
-          <div class="col-sm-20">
-            <input type="text" id="itNombre" class="campo" placeholder="Diego" /> <br />
-          </div>
-          <div id="mensaje1"></div> <!-- Dentro de este div va el mensaje de error que está en JS-->
-    
-    
-          <label>Contraseña:</label>
-          <div class="col-sm-20">
-            <input type="text" id="itContrasena" class="campo" placeholder="" /> <br />
-          </div>
-          <div id="mensaje2"></div>
-    
-          <br>
-    
-          <button>Enviar</button> <!--Button Java-->
-          
-        </form>
-      </div>
+{% extends "cesar/base.html" %}
+{% block content %}
+    <div class="container-centered fuente" style="padding-top:5rem;">
+        <div class="container">
+            <!-- FORM -->
+            <form action="{% url 'registro' %}" method="POST" id="formulario">
+                {% csrf_token %}
+                <span class="text-center formato_titulo_form">REGISTRARSE</span>
+                <br>
+                <div class="form-group">
+                    <label for="itNombre">Nombre</label>
+                    <input type="text" class="form-control" id="itNombre" name="nombre" placeholder="Nombre">
+                    <div id="mensaje1"></div>
+                </div>
+                <div class="form-group">
+                    <label for="itContrasena">Contraseña</label>
+                    <input type="password" class="form-control" id="itContrasena" name="contrasena">
+                    <div id="mensaje2"></div>
+                </div>
+                <div>
+                    <label for="formGroupExampleInput">¿Ya tienes cuenta?</label>
+                    <a class="label" href="#" style="color: blue;">Inicia sesion</a>
+                </div>
+                <button class="btn btn-primary">ENVIAR</button>
+            </form>
+        </div>
     </div>
 
-  
-
-
-  <!-- Scripts -->
-  {%load static%}
-  <script src={%static 'js/validaciones.js' %}></script> <!--Link hacia validaciones.js-->
-  
+    <!-- SCRIPTS -->
+     {% load static %}
+     <script src="{% static 'js/validaciones.js' %}"></script>
 {% endblock %}
