@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
+from cesar import carrito
 from cesar.carrito import Carrito
 from cesar.models import Producto
 
@@ -21,21 +22,21 @@ def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def eliminar_producto(request, producto_id):
     Carrito =  Carrito(request)
-    producto =  Producto.objects.ge(id=producto_id)
+    producto =  Producto.objects.get(id=producto_id)
     carrito.eliminar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def restar_producto(request, producto_id):
-    Carrito =  Carrito(request)
-    producto =  Producto.objects.ge(id=producto_id)
+    carrito =  Carrito(request)
+    producto =  Producto.objects.get(id=producto_id)
     carrito.restar(producto)
-    return redirect("Tienda")
+    return redirect("tienda")
 
 def limpiar_carrito(request):
-    carrito = carrito(request)
+    carrito = Carrito(request)
     carrito.limpiar()    
-    return redirect("Carrito")
+    return redirect("tienda")
