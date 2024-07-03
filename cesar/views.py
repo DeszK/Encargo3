@@ -39,3 +39,7 @@ def limpiar_carrito(request):
     carrito = carrito(request)
     carrito.limpiar()    
     return redirect("Carrito")
+
+def nuestros_productos(request):
+    context={}
+    return render(request, 'cesar/nuestros_productos.html', context)

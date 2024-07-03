@@ -1,0 +1,57 @@
+{%extends "cesar/index.html"%}
+
+{%block content%}
+    <div class="container-centered fuente"> <!-- Container para centrar el contenido -->
+      <div class="container" style="margin-top: 70px;">
+        <!--Formulario-->
+        <h1>Registro De Usuario</h1><br />
+        <form id="formulario">
+    
+          <label>Nombre:</label>
+          <div class="col-sm-20">
+            <input type="text" id="itNombre" class="campo" placeholder="Diego" /> <br />
+          </div>
+          <div id="mensaje1"></div> <!-- Dentro de este div va el mensaje de error que está en JS-->
+    
+    
+          <label>Apellido:</label>
+          <div class="col-sm-20">
+            <input type="text" id="itApellido" class="campo" placeholder="Robles" /> <br />
+          </div>
+          <div id="mensaje2"></div>
+    
+    
+          <label>Celular:</label>
+          <div class="col-sm-20">
+            <input type="text" id="itCelular" class="campo" placeholder="+569..." /> <br />
+          </div>
+          <div id="mensaje3"></div>
+    
+    
+          <label>Correo Electrónico:</label>
+          <div class="col-sm-20">
+            <input type="text" id="itEmail" class="campo" placeholder="diegorobles@gmail.com" /> <br />
+          </div>
+          <div id="mensaje4"></div>
+    
+    
+          <label>Direccion:</label>
+          <div class="col-sm-20">
+            <input type="text" id="itDireccion" class="campo" placeholder="Froilán Roa 7107, La Florida" /> <br />
+          </div>
+          <div id="mensaje5"></div>
+    
+          <br>
+    
+          <button>Enviar</button> <!--Button Java-->
+          
+        </form>
+      </div>
+    </div>
+
+  
+
+
+  <!-- Scripts -->
+  <script src="assets/js/validaciones.js"></script> <!--Link hacia validaciones.js-->
+{%endblock%}
