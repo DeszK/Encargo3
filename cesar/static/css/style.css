@@ -116,7 +116,7 @@ body{
     text-align: center; /* Centra el texto dentro del contenedor y cualquier otro elemento */
 
 }
-h1{
+.formato_titulo_form{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Sirve para cambiar el tipo de letra al título del formulario */
     text-decoration: underline; /* Sirve para subrayar el título del formulario */
 }
