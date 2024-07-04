@@ -27,6 +27,14 @@ def tienda(request):
     productos = Producto.objects.all()
     return render(request, "cesar/tienda.html",{'productos':productos})
 
+def contacto(request):
+    context={}
+    return render(request, 'cesar/contacto.html', context)
+
+def locales(request):
+    context={}
+    return render(request, 'cesar/locales.html', context)
+
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
