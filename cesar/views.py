@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.models import User
 
 from cesar import carrito
 from cesar.carrito import Carrito
@@ -11,8 +12,16 @@ def index(request):
     return render(request, 'cesar/index.html', context)
 
 def registro(request):
-    context={}
+ if request.method !="POST":
+    context={"clase":"registro"}
     return render(request, 'cesar/registro.html', context)
+ else:
+     nombre = request.POST["nombre"]
+     contrasena = request.POST["contrasena"]
+     user = User.objects.create_user(nombre, contrasena)
+     user.save()
+     context={"clase":"registro", "mensaje": "Los datos fueron registrados con exito!"}
+     return render(request, 'cesar/registro.html', context)
 
 def tienda(request):
     productos = Producto.objects.all()

@@ -2,6 +2,11 @@
 {% block content %}
     <div class="container-centered fuente" style="padding-top:5rem;">
         <div class="container">
+            {% if mensaje %}
+            <div class="alert alert-primary" role="alert" id="idMensaje">
+                {{ mensaje }}
+            </div>
+            {%endif%}
             <!-- FORM -->
             <form action="{% url 'registro' %}" method="POST" id="formulario">
                 {% csrf_token %}
@@ -19,7 +24,7 @@
                 </div>
                 <div>
                     <label for="formGroupExampleInput">¿Ya tienes cuenta?</label>
-                    <a class="label" href="#" style="color: blue;">Inicia sesion</a>
+                    <a class="label" href="{% url 'login' %}" style="color: blue;">Inicia sesion</a>
                 </div>
                 <button class="btn btn-primary">ENVIAR</button>
             </form>
