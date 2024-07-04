@@ -120,9 +120,3 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Sirve para cambiar el tipo de letra al título del formulario */
     text-decoration: underline; /* Sirve para subrayar el título del formulario */
 }
-.container {
-    border: 5px solid rgb(255, 115, 0); /* Coloca un borde alrededor de color naranja */
-    border-radius: 10px; /* Sirve para hacer las esquinas redondeadas */
-    padding: 20px; /* Crea un espacio de relleno alrededor del contenido */ 
-    width: 100%; /* Establece el ancho del elemento */
-}
