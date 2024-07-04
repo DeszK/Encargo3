@@ -11,8 +11,8 @@
           
           </div>
           {%endif%}
-          <h1>Login</h1>
           <form  method="POST">
+              <h1>Login</h1>
               {% csrf_token %}
               {{ form.as_p }}
               <button type="submit">Entrar</button>

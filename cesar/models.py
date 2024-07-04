@@ -10,11 +10,3 @@ class Producto(models.Model):
 
     def __str__(self):
         return f'{self.nombre} -> {self.precio}'
-
-class Cliente(models.Model):
-    id_cliente = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
-    contrasena = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.nombre
