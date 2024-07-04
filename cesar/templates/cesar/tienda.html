@@ -1,34 +1,31 @@
-{% extends "cesar/base.html"%}
-
+{% extends "cesar/base.html" %}
+{% load static %}
 {% block content %}
 
-<div class="row">
-    <div class="col-8">
-        <div class="row" style="padding: 5px 0;">
-            <div class="col-12">
-                <div class="row">
-                    {% for producto in productos %}
-                    <div class="col-6">
-                        <div class="card" style="height: 13rem; width: 23rem; margin: 5px 0px; margin-left:15px">
-                            <div class="card-body">
-                                <h5 class="card-title">{{producto.nombre}}</h5>
-                                <p class="card-text">{{producto.categoria}}</p>
-                                <p class="card-text">{{producto.precio}}</p>
-                                <a href="{% url 'Add' producto.id %}"  class="btn btn-primary">Agregar al Carrito</a>
-                            </div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row" style="padding: 5px 0;">
+                {% for producto in productos %}
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="card">
+                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                            <p class="card-text">{{ producto.categoria }}</p>
+                            <p class="card-text">${{ producto.precio }}</p>
+                            <a href="{% url 'Add' producto.id %}" class="btn btn-primary btn-block">Agregar al Carrito</a>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
 
-    <div class="col-4">
-        {% include "cesar/carrito.html" %}
+        <div class="col-md-4">
+            {% include "cesar/carrito.html" %}
+        </div>
     </div>
-
 </div>
 
-
-{%endblock%}
+{% endblock %}
