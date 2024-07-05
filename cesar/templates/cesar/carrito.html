@@ -64,6 +64,7 @@
         </div>
     </div>
 
+    <input type="hidden" id="itemsLength" value="{{ request.session.carrito.items|length }}">
 
 
     <div class="modal fade" id="compraExitosaModal" tabindex="-1" role="dialog" aria-labelledby="compraExitosaModalLabel" aria-hidden="true">
@@ -106,16 +107,6 @@
 
 
     
-    <script>
-        $(document).ready(function() {
-            $('#btnGuardar').click(function() {
-                if ('{{ request.session.carrito.items|length }}' == 0) {
-                    $('#errorCarritoModal').modal('show');
-                } else {
-                    $('#compraExitosaModal').modal('show');
-                }
-            });
-        });
-    </script>
+    <script src="{% static 'js/validaciones.js' %}"></script>
 </body>
 </html>

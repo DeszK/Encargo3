@@ -38,3 +38,14 @@ $(document).ready(function(){
         }
     });
 });
+
+$(document).ready(function() {
+    $('#btnGuardar').click(function() {
+        const itemsLength = parseInt($('#itemsLength').val());
+        if (itemsLength == 0) {
+            $('#errorCarritoModal').modal('show');
+        } else {
+            $('#compraExitosaModal').modal('show');
+        }
+    });
+});
