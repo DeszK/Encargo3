@@ -110,13 +110,14 @@
         <script>
             $(document).ready(function() {
                 $('#btnGuardar').click(function() {
-                    if ($('#btnGuardar').data('items-length') == 0) {
+                    if ('{{ request.session.carrito.items|length }}' == 0) {
                         $('#errorCarritoModal').modal('show');
                     } else {
                         $('#compraExitosaModal').modal('show');
                     }
                 });
             });
+        
         </script>
 </body>
 </html>
