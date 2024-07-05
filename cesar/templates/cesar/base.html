@@ -40,10 +40,13 @@
       <li class="nav-item">
         <a class="btn" href="{% url 'tienda' %}">Tienda</a>
       </li>
+      {%if user.is_authenticated%}
+
+      {%else%}
       <li class="nav-item">
         <a class="btn" href="{% url 'registro' %}">Registrarse</a>
       </li>
-
+      {%endif%}
       {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="btn">{{ user.username }}</a>

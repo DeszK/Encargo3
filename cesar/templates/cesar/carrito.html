@@ -105,17 +105,18 @@
     </div>
 
 
-    
-    <script>
-        $(document).ready(function() {
-            $('#btnGuardar').click(function() {
-                if ('{{ request.session.carrito.items|length }}' == 0) {
-                    $('#errorCarritoModal').modal('show');
-                } else {
-                    $('#compraExitosaModal').modal('show');
-                }
+        <!-- SCRIPTS -->
+
+        <script>
+            $(document).ready(function() {
+                $('#btnGuardar').click(function() {
+                    if ($('#btnGuardar').data('items-length') == 0) {
+                        $('#errorCarritoModal').modal('show');
+                    } else {
+                        $('#compraExitosaModal').modal('show');
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 </html>
