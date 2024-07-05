@@ -43,7 +43,34 @@
         <li class="nav-item">
           <a class="btn" href="{% url 'tienda' %}">Tienda</a>
         </li>
-        
+
+        <li>
+          {% if user.is_authenticated %}
+          <a href="#">{{user.username}}</a>
+          <ul>
+            <li class="nav-item">
+              <a href="#">Mi Perfil</a>
+            </li>
+            <form id="logoutForm" action="accounts/logout/" method="post">
+              {%csrf_token%}
+              <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+              </li>
+            </form>
+          </ul>
+          {%else%}
+          <li class="nav-item">
+            <a href="{%url 'login'%}">Login</a>
+          </li>
+          {%endif%}
+        </li>
+        {%if user.is_authenticated%}
+
+        {%else%}
+        <li>
+          <a href="{%url 'registro'%}">Registro</a>
+        </li>
+        {%endif%}
       </ul>
     </div>
   </nav>
