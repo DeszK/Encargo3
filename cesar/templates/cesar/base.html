@@ -32,27 +32,36 @@
         <a class="btn" href="/">Inicio<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="btn" href="{% url 'registro' %}">Registro</a>
-      </li>
-      <li class="nav-item">
         <a class="btn" href="{% url 'contacto' %}">Contáctanos</a>
       </li>
       <li class="nav-item">
         <a class="btn" href="{% url 'locales' %}">¡Encuentranos!</a>
       </li>
+      {%if user.is_authenticated%}
+
+      {%else%}
+      <li class="nav-item">
+        <a class="btn" href="{% url 'registro' %}">Registrarse</a>
+      </li>
+      {%endif%}
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="btn">{{ user.username }}</a>
+        </li>
+        <form id="logoutForm" action="accounts/logout/" method="post">
+          {%csrf_token%}
+          <li>
+            <a class="btn" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+          </li>
+        </form>
+      {% else %}
+        <li class="nav-item">
+          <a class="btn" href="{% url 'login' %}">Login</a>
+        </li>
+      {% endif %}
       <li class="nav-item">
         <a class="btn" href="{% url 'tienda' %}">Tienda</a>
       </li>
-
-      {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a href="#">{{ user.username }}</a>
-        </li>
-      {% else %}
-        <li class="nav-item">
-          <a href="{% url 'login' %}">Login</a>
-        </li>
-      {% endif %}
     </ul>
   </div>
 </nav>
