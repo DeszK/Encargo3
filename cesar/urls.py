@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -13,5 +13,7 @@ urlpatterns = [
     path('eliminar/<int:producto_id>/', views.eliminar_producto, name="Del"),
     path('restar/<int:producto_id>/', views.restar_producto, name="Sub"),
     path('limpiar/', views.limpiar_carrito, name="CLS"),
+    path('accounts/', include('django.contrib.auth.urls')),
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

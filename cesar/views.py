@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 from cesar import carrito
 from cesar.carrito import Carrito
@@ -18,7 +20,7 @@ def registro(request):
  else:
      nombre = request.POST["nombre"]
      contrasena = request.POST["contrasena"]
-     user = User.objects.create_user(nombre, contrasena)
+     user = User.objects.create_user(username=nombre, password=contrasena)
      user.save()
      context={"clase":"registro", "mensaje": "Los datos fueron registrados con exito!"}
      return render(request, 'cesar/registro.html', context)
