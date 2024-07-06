@@ -46,7 +46,8 @@
       {%endif%}
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="btn">{{ user.username }}</a>
+            <a class="btn">{{ user.username }}</a>
+            <a class= "btn" href="{% url 'perfil'%}">Mi Perfil</a>
         </li>
         <form id="logoutForm" action="accounts/logout/" method="post">
           {%csrf_token%}

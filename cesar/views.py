@@ -37,6 +37,11 @@ def locales(request):
     context={}
     return render(request, 'cesar/locales.html', context)
 
+def perfil(request):
+    context={}
+    return render(request, 'cesar/perfil.html', context)
+    
+
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
