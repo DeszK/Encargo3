@@ -15,6 +15,13 @@ urlpatterns = [
     path('restar/<int:producto_id>/', views.restar_producto, name="Sub"),
     path('limpiar/', views.limpiar_carrito, name="CLS"),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('agregar_producto/', views.agregar_producto, name="agregar_producto"),
+    path('lista_productos/', views.listar_productos, name="lista_productos"),
+    path('modificar_producto/<id>/', views.modificar_producto, name="modificar_producto"),
+    path('eliminar_producto/<id>/', views.eliminar_producto, name="eliminar_producto"),
+    path('lista_mensajes/', views.lista_mensajes, name="lista_mensajes"),
+    path('ver_mensaje/<id>/', views.ver_mensaje, name="ver_mensaje"),
+    path('eliminar_mensaje/<id>/', views.eliminar_mensaje, name="eliminar_mensaje"),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
