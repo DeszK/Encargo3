@@ -1,5 +1,25 @@
 {% extends "cesar/base.html" %}
 {% block content %}
 
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card" style="width: 100%; max-width: 600px;">
+        <div class="card-header text-center">
+            <h2>Perfil de Usuario</h2>
+        </div>
+        <div class="card-body">
+            <label for="{{ field.id_for_label }}" class="form-label">Nombre Usuario:</label>
+            <label for="{{ field.id_for_label }}" class="form-label">{{user.username}}</label>
+            <br>
+            <br>
+            <label for="{{ field.id_for_label }}" class="form-label">Apellido Usuario:</label>
+            <label for="{{ field.id_for_label }}" class="form-label">{{user.last_name}}</label>
+            <br>
+            <br>
+            <label for="{{ field.id_for_label }}" class="form-label">Correo Usuario:</label>
+            <label for="{{ field.id_for_label }}" class="form-label">{{user.email}}</label> 
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
