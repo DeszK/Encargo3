@@ -1,6 +1,26 @@
 {% extends "cesar/base.html" %}
 {% block content %}
-
+{% load static %}
+{% block js %}
+<script>
+    function eliminarMensaje(id){
+        Swal.fire({
+            "title": "Estas Seguro?",
+            "text": "Esta accion no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, No Estoy Seguro",
+            "confirmButtonText": "Si, Estoy Seguro",
+            "confirmButtonColor": "#dc3545"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/eliminar_mensaje/"+id+"/"
+            }
+        })
+    }
+</script>
+{% endblock %}
 
 <div class="card">
     <div class="card-body">
