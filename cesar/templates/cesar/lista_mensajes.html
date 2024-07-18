@@ -1,26 +1,6 @@
 {% extends "cesar/base.html" %}
-{% load static %}
-{% block js %}
-<script>
-    function eliminarMensaje(id){
-        Swal.fire({
-            "title": "Estas Seguro?",
-            "text": "Esta accion no se puede deshacer",
-            "icon": "question",
-            "showCancelButton": true,
-            "cancelButtonText": "No, No Estoy Seguro",
-            "confirmButtonText": "Si, Estoy Seguro",
-            "confirmButtonColor": "#dc3545"
-        })
-        .then(function(result){
-            if(result.isConfirmed){
-                window.location.href = "/eliminar_mensaje/"+id+"/"
-            }
-        })
-    }
-</script>
-{% endblock %}
 {% block content %}
+
 
 <div class="card">
     <div class="card-body">
@@ -28,20 +8,20 @@
         <table class="table table-stripped table-hover table-responsive-sm">
             <tr>
                 <th>Nombre</th>
-                <th>Appelido</th>
+                <th>Apellido</th>
                 <th>Correo</th>
                 <th>Tipo</th>
                 <th>Mensaje</th>
                 <th>Opciones</th>
             </tr>
         
-            {% for p  in entity %}
+            {% for p in entity %}
             <tr>
                 <td>{{ p.nombre | title }}</td>
                 <td>{{ p.apellido | title }}</td>
-                <td>{{ p.correo}}</td>
-                <td>{{ p.tipo_contacto}}</td>
-                <td>{{ p.mensaje}}</td>
+                <td>{{ p.correo }}</td>
+                <td>{{ p.tipo_contacto }}</td>
+                <td>{{ p.mensaje }}</td>
                 <td>
                     <a href="{% url 'ver_mensaje' p.id %}" class="btn btn-success btn-sm">Ver</a>
                     <a href="#" onclick="eliminarMensaje({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
@@ -56,6 +36,17 @@
         </div>
     </div>
 </div>
-
-
+<div class="card">
+    <div class="card-body">
+        <h2>Responder Correo</h2>
+        <form action="{% url 'enviar_correo' %}" method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_mail">Correo Electrónico:</label>
+                <input type="email" name="mail" id="id_mail" class="form-control" placeholder="Ingrese su correo">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

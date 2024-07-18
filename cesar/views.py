@@ -6,6 +6,9 @@ from .forms import ProductoForm, ContactoForm, CustomUserCreationForm
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.contrib.auth import authenticate, login
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
 
 
 from cesar import carrito
@@ -175,3 +178,26 @@ def registro(request):
             return redirect(to="index")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
+
+def send_email(mail):
+    context = {'mail': mail}
+    template = get_template('cesar/correo.html')
+    content = template.render(context)
+
+    email = EmailMultiAlternatives(
+        'Respuesta Chico Cesar',
+        '',
+        settings.EMAIL_HOST_USER,
+        [mail]
+    )
+    email.attach_alternative(content, 'text/html')
+    email.send()
+
+def correo(request):
+    if request.method == 'POST':
+        mail = request.POST.get('mail')
+        send_email(mail)
+        return redirect('lista_mensajes')
+    return render(request, 'cesar/lista_mensajes.html', {})
+
+
