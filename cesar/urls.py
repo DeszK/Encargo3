@@ -22,6 +22,7 @@ urlpatterns = [
     path('lista_mensajes/', views.lista_mensajes, name="lista_mensajes"),
     path('ver_mensaje/<id>/', views.ver_mensaje, name="ver_mensaje"),
     path('eliminar_mensaje/<id>/', views.eliminar_mensaje, name="eliminar_mensaje"),
+    path('registro/', views.registro, name="registro"),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

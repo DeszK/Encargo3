@@ -9,12 +9,13 @@
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Inicio de Sesion</h2>
+                        <h2>Registro de Usuario</h2>
                         <hr>
                         <form action="" method="post">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <input type="submit" value="Iniciar Sesion" class="btn btn-success float-right">
+                            <a href="{% url 'login' %}">Iniciar Sesión</a>
+                            <input type="submit" value="Registrar" class="btn btn-success float-right">
                         </form>
                     </div>
                 </div>

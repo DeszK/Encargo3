@@ -2,9 +2,10 @@ from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import ProductoForm, ContactoForm
+from .forms import ProductoForm, ContactoForm, CustomUserCreationForm
 from django.core.paginator import Paginator
 from django.http import Http404
+from django.contrib.auth import authenticate, login
 
 
 from cesar import carrito
@@ -17,17 +18,6 @@ def index(request):
     context={}
     return render(request, 'cesar/index.html', context)
 
-def registro(request):
- if request.method !="POST":
-    context={"clase":"registro"}
-    return render(request, 'cesar/registro.html', context)
- else:
-     nombre = request.POST["nombre"]
-     contrasena = request.POST["contrasena"]
-     user = User.objects.create_user(username=nombre, password=contrasena)
-     user.save()
-     context={"clase":"registro", "mensaje": "Los datos fueron registrados con exito!"}
-     return render(request, 'cesar/registro.html', context)
 
 def tienda(request):
     productos = Producto.objects.all()
@@ -170,3 +160,18 @@ def eliminar_mensaje(request, id):
     producto.delete()
     messages.success(request, "Eliminado Correctamente")
     return redirect(to="lista_mensajes")
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, "Te has registrado exitosamente")
+            return redirect(to="index")
+        data["form"] = formulario
+    return render(request, 'registration/registro.html', data)
